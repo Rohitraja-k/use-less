@@ -3,58 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B-Wrap | Virtual Bubble Wrap Experience</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Connect Me</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Welcome Screen -->
-    <div id="welcome-screen" class="screen active">
-        <div class="welcome-content">
-            <div class="logo-container">
-                <div class="logo">
-                    <span class="logo-text">B-Wrap</span>
-                    <div class="logo-bubbles">
-                        <div class="mini-bubble"></div>
-                        <div class="mini-bubble"></div>
-                        <div class="mini-bubble"></div>
+    <!-- Welcome Page -->
+    <div class="welcome-page" id="welcome">
+        <div class="animated-bg"></div>
+        <div class="logo-container">
+            <img src="logo.svg" alt="Connect Me Logo" class="logo-image">
+            <h1 class="site-title">Connect Me</h1>
+        </div>
+        <div class="welcome-messages">
+            <div class="message-container">
+                <p class="welcome-message">Welcome to our romantic journey! ❤️</p>
+                <p class="welcome-message">Let's create beautiful memories together! 💫</p>
+                <p class="welcome-message">Love is in the air! 💕</p>
+                <p class="welcome-message">Your perfect date planner! 📅</p>
+                <p class="welcome-message">Organize your love life! 💝</p>
+            </div>
+        </div>
+        <div class="welcome-features">
+            <div class="feature">
+                <i class="fas fa-tasks"></i>
+                <h3>To-Do List</h3>
+                <p>Plan your special moments</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Date Scheduler</h3>
+                <p>Never miss an important date</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-quote-right"></i>
+                <h3>Love Quotes</h3>
+                <p>Get inspired daily</p>
+            </div>
+        </div>
+        <button class="enter-btn">Enter <i class="fas fa-heart"></i></button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content hidden">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="logo.svg" alt="Connect Me Logo" class="nav-logo-image">
+                <span>Connect Me</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#todo" class="nav-link active">To-Do List</a></li>
+                <li><a href="#scheduler" class="nav-link">Date Scheduler</a></li>
+                <li><a href="#quotes" class="nav-link">Romantic Quotes</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+
+        <!-- To-Do List Section -->
+        <section id="todo" class="section">
+            <div class="container">
+                <h2 class="section-title">To-Do List</h2>
+                <div class="todo-container">
+                    <div class="todo-input">
+                        <input type="text" id="task-input" placeholder="Add a new task...">
+                        <button id="add-task">Add</button>
+                    </div>
+                    <ul id="task-list" class="task-list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Date Scheduler Section -->
+        <section id="scheduler" class="section">
+            <div class="container">
+                <h2 class="section-title">Date Scheduler</h2>
+                <div class="scheduler-container">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button id="prev-month">&lt;</button>
+                            <h3 id="month-year"></h3>
+                            <button id="next-month">&gt;</button>
+                        </div>
+                        <div class="weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div id="calendar-days" class="calendar-days"></div>
+                    </div>
+                    <div class="event-container">
+                        <h3>Add Event</h3>
+                        <div class="event-form">
+                            <input type="text" id="event-title" placeholder="Event title...">
+                            <button id="save-event">Save Event</button>
+                        </div>
+                        <div id="events-list" class="events-list">
+                            <h3>Upcoming Events</h3>
+                            <ul id="events"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <h2 class="tagline">The Virtual Bubble Wrap Experience</h2>
-            <button id="start-button" class="start-button">Start Popping!</button>
-        </div>
-        <div class="floating-bubbles">
-            <!-- Decorative bubbles will be added via JS -->
-        </div>
-    </div>
+        </section>
 
-    <!-- Game Screen -->
-    <div id="game-screen" class="screen">
-        <div class="game-header">
-            <div class="mini-logo">B-Wrap</div>
-            <div class="stats">
-                <div class="bubbles-popped">
-                    <span id="pop-count">0</span> Pops
+        <!-- Romantic Quote Generator Section -->
+        <section id="quotes" class="section">
+            <div class="container">
+                <h2 class="section-title">Romantic Quotes</h2>
+                <div class="quote-container">
+                    <div id="quote-display" class="quote-display">
+                        <p id="quote-text" class="quote-text"></p>
+                        <p id="quote-author" class="quote-author"></p>
+                    </div>
                 </div>
             </div>
-            <button id="reset-button" class="reset-button">Reset</button>
-        </div>
-        <div id="bubble-container" class="bubble-container">
-            <!-- Bubbles will be generated here via JS -->
-        </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2023 Connect Me. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
 
-    <!-- Pop Text Container -->
-    <div id="pop-text-container"></div>
-
-    <!-- Audio Elements -->
-    <audio id="pop-sound-1" src="sounds/bpop1.mp3" preload="auto"></audio>
-    <audio id="pop-sound-2" src="sounds/bpop1.mp3" preload="auto"></audio>
-    <audio id="pop-sound-3" src="sounds/bpop1.mp3" preload="auto"></audio>
-
+    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
